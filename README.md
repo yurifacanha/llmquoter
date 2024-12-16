@@ -4,7 +4,29 @@
 
 ## Overview
 
-**LLMQuoter** is a lightweight, distillation-based model designed to enhance **Retrieval-Augmented Generation (RAG)** workflows. The model adopts a *"quote-first-then-answer"* strategy, extracting relevant textual evidence (quotes) from large contexts before performing reasoning tasks. This innovative approach reduces cognitive overhead and achieves significant performance improvements over traditional full-context methods like RAFT.
+**LLMQuoter** is a lightweight, distillation-based model designed to enhance **Retrieval-Augmented Generation (RAG)** workflows. The model adopts a *"quote-first-then-answer"* strategy, extracting relevant textual evidence (quotes) from large contexts before performing reasoning tasks. 
+
+### RAFT Example
+
+The **Retrieval-Augmented Fine-Tuning (RAFT)** approach involves reasoning and answering directly over the **full context**. RAFT trains models to “think while quoting,” combining reasoning with the ability to extract relevant portions of the text. An example of RAFT inference is shown below:
+
+![RAFT Inference Example](RAFT_Example.png)
+
+In RAFT, the model performs the following steps in a single process:
+1. Reads the entire context.
+2. Extracts quotes inline.
+3. Generates a reasoning chain to derive the answer.
+
+While effective, RAFT’s holistic approach can cause cognitive overload, especially for smaller models.
+
+---
+
+**LLMQuoter**, by contrast, separates the quote extraction and reasoning steps:
+1. **Step 1**: A smaller model extracts quotes relevant to the question.
+2. **Step 2**: The reasoning model focuses solely on the extracted quotes, avoiding the overhead of processing the entire context.
+
+This modular approach simplifies the reasoning task and reduces errors arising from large or noisy contexts. 
+
 
 The repository includes:
 1. **Methodology**: Explanation of the quote extraction process and fine-tuning.
