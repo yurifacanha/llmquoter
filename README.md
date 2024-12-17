@@ -43,6 +43,8 @@ The process begins by creating a distilled dataset using a high-performing teach
 ### Fine-Tuning with LoRA
 Using the distilled dataset, a smaller model (LLaMA 3.2:3B) is fine-tuned using **Low-Rank Adaptation (LoRA)**. This technique enables task-specific training while maintaining computational efficiency.
 
+You can find the training step in the following Colab notebook:  
+[Fine-Tuning with LoRA on Colab](https://colab.research.google.com/drive/1iDakm6h3hnm20HE1C5wFKtfvdLv3fnvM?usp=sharing)
 
 
 ---
